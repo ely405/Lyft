@@ -80,16 +80,20 @@ window.addEventListener("load", function(){
 
   document.getElementById("btn-become").addEventListener("click", function(){
     event.preventDefault();
-    var newPerson = new Person(inpPhoneNumber.value, inpName.value, inpEmail.value, inpCity.value);
     var allInpData = document.querySelectorAll(".inp-data");
 
       for (var i = 0; i < allInpData.length; i++) {
         if(allInpData[i].value.trim().length == 0){
           allInpData[i].style.borderBottom = "2px solid #FEA4AD";
-
-        }else if(allInpData[i].style.borderBottom != "2px solid #FEA4AD"){
-            allPerson.unshift(newPerson);
-            localStorage.setItem("allPerson",JSON.stringify(allPerson));
+        }else if(inpPhoneNumber.value != "" || inpName.value != "" || inpEmail.value != "" || inpCity.value != ""){
+          if(allInpData[i].style.borderBottom == "2px solid #FEA4AD"){
+            allInpData[i].style.borderBottom = "2px solid #FEA4AD";
+          }
+          else{
+            var newPerson = new Person(inpPhoneNumber.value, inpName.value, inpEmail.value, inpCity.value);
+          }
+          allPerson.unshift(newPerson);
+         localStorage.setItem("allPerson",JSON.stringify(allPerson));
         }
       }
   });
