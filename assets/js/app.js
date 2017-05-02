@@ -1,4 +1,6 @@
 var logo = document.getElementById("logo");
+var navSignUp = document.getElementById("nav-sign-up");
+var navLogIn = document.getElementById("nav-log-in");
 
 var elemFormNone = document.getElementsByName("form-none");
 var inpPhoneNumber = document.getElementById("inp-phone");
@@ -53,9 +55,14 @@ window.addEventListener("load", function(){
     if(currentScroll > lastScrollTop){
       document.getElementById("header").className = "header-down-scroll";
       logo.src = "assets/image/logo-pink.png";
+      navSignUp.className = "c-black";
+      navLogIn.className = "c-black";
+      navSignUp.style.display = "inline";
     }else if (currentScroll <=3){
       document.getElementById("header").className = "header-up-scroll";
       logo.src = "assets/image/logo-white.png";
+      navSignUp.style.display = "none";
+      navLogIn.className = "c-white";
     }
     lastScrollTop = currentScroll;
   }, false);

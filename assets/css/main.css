@@ -43,8 +43,8 @@ header{
   transition: all 0.6s cubic-bezier(0.7, 0.01, 0.3, 1);
 }
 .header-up-scroll{
-  color: #fff;
-  background: none;
+  background-color: : none;
+  color: white;
 }
 
 .header-down-scroll{
@@ -63,13 +63,33 @@ header{
   width: 40%;
   height: 40%;
 }
-.menu a{
+ .menu a{
   margin: 0.5rem;
   text-decoration: none;
 }
 
 .menu a:hover{
   color: #FF00BF;
+}
+
+.menu button{
+  background-color: transparent;
+  border-radius: 0.5rem;
+  border: 2px solid #FF00BF;
+  padding: 0.3rem 1rem;
+  cursor: pointer;
+}
+
+.c-black{
+  color: black;
+}
+
+.c-white{
+  color: white;
+}
+
+.none-sign-up{
+  display: none;
 }
 
 .first-content{
