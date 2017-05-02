@@ -1,3 +1,10 @@
+function Person(celular, nombre, correo, ciudad){
+  this.celular = celular;
+  this.nombre = nombre;
+  this.correo = correo;
+  this.ciudad = ciudad;
+}
+
 var logo = document.getElementById("logo");
 var navSignUp = document.getElementById("nav-sign-up");
 var navLogIn = document.getElementById("nav-log-in");
@@ -26,6 +33,24 @@ function validateEachInput(regEx){
 
 
 window.addEventListener("load", function(){
+  var lastScrollTop = 0;
+
+  window.addEventListener("scroll", function(){
+    var currentScroll = window.pageYOffset || document.body.scrollTop;
+    if(currentScroll > lastScrollTop){
+      document.getElementById("header").className = "header-down-scroll";
+      logo.src = "assets/image/logo-pink.png";
+      navLogIn.className = "c-gray";
+      navSignUp.style.display = "inline";
+    }else if (currentScroll <=3){
+      document.getElementById("header").className = "header-up-scroll";
+      logo.src = "assets/image/logo-white.png";
+      navSignUp.style.display = "none";
+      navLogIn.className = "c-white c-pink";
+    }
+    lastScrollTop = currentScroll;
+  }, false);
+
   inpPhoneNumber.addEventListener("focus", function(){
     for (var i = 0; i < elemFormNone.length; i++) {
       elemFormNone[i].className = "input-box block";
@@ -48,21 +73,24 @@ window.addEventListener("load", function(){
     validateEachInput(regFirstCapLet);
   });
 
-  var lastScrollTop = 0;
+  var allPerson=[];
+  if(!localStorage.getItem("allPerson")){
+    localStorage.setItem("allPerson",JSON.stringify(allPerson));
+  }
 
-  window.addEventListener("scroll", function(){
-    var currentScroll = window.pageYOffset || document.body.scrollTop;
-    if(currentScroll > lastScrollTop){
-      document.getElementById("header").className = "header-down-scroll";
-      logo.src = "assets/image/logo-pink.png";
-      navLogIn.className = "c-gray";
-      navSignUp.style.display = "inline";
-    }else if (currentScroll <=3){
-      document.getElementById("header").className = "header-up-scroll";
-      logo.src = "assets/image/logo-white.png";
-      navSignUp.style.display = "none";
-      navLogIn.className = "c-white c-pink";
+  document.getElementById("btn-become").addEventListener("click", function(){
+    event.preventDefault();
+    var newPerson = new Person(inpPhoneNumber.value, inpName.value, inpEmail.value, inpCity.value);
+    var allInpData = document.querySelectorAll(".inp-data");
+    console.log(allInpData);
+    if(inpPhoneNumber.value == "" || inpName.value == "" || inpEmail.value == "" || inpCity.value == ""){
+        for (var i = 0; i < allInpData.length; i++) {
+          allInpData[i].style.borderBottom = "2px solid #FEA4AD";
+        }
+    }else{
+      allPerson.unshift(newPerson);
+      localStorage.setItem("allPerson",JSON.stringify(allPerson));
     }
-    lastScrollTop = currentScroll;
-  }, false);
+  });
+
 });
