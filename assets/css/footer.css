@@ -8,8 +8,17 @@
   justify-content: space-around;
 }
 
+.link-foot, .icon{
+  padding: 1.5rem;
+}
+
+.link-foot div{
+  height: 50%;
+}
+
 li{
   list-style: none;
+  margin: 1rem;
 }
 
 .footer a{
