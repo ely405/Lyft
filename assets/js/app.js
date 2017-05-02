@@ -55,14 +55,13 @@ window.addEventListener("load", function(){
     if(currentScroll > lastScrollTop){
       document.getElementById("header").className = "header-down-scroll";
       logo.src = "assets/image/logo-pink.png";
-      navSignUp.className = "c-black";
-      navLogIn.className = "c-black";
+      navLogIn.className = "c-gray";
       navSignUp.style.display = "inline";
     }else if (currentScroll <=3){
       document.getElementById("header").className = "header-up-scroll";
       logo.src = "assets/image/logo-white.png";
       navSignUp.style.display = "none";
-      navLogIn.className = "c-white";
+      navLogIn.className = "c-white c-pink";
     }
     lastScrollTop = currentScroll;
   }, false);

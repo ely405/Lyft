@@ -1,5 +1,7 @@
 .footer{
   background-color: #333447;
+  position: relative;
+  bottom: 0;
 }
 
 .link-foot{

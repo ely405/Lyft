@@ -30,6 +30,10 @@
   text-transform: uppercase;
 }
 
+button, input{
+  outline: none;
+}
+
 header{
   display: flex;
   position: fixed;
@@ -55,13 +59,16 @@ header{
 .nav-header, .sec-phone, .amplify-ride, .june, .good-thing{
   display: flex;
   justify-content: space-around;
+  flex-wrap: nowrap;
   width: 100%;
   align-items: center;
 }
 
 .logo, .menu{
-  width: 40%;
+  max-width: 80%;
   height: 40%;
+  display: flex;
+  flex-wrap: nowrap;
 }
  .menu a{
   margin: 0.5rem;
@@ -75,9 +82,18 @@ header{
 .menu button{
   background-color: transparent;
   border-radius: 0.5rem;
-  border: 2px solid #FF00BF;
   padding: 0.3rem 1rem;
   cursor: pointer;
+}
+
+
+.menu button:hover{
+  background-color: rgb(233, 0, 182);
+}
+
+.c-pink{
+  border: 2px solid #FF00BF;
+  color: #FF00BF;
 }
 
 .c-black{
@@ -86,6 +102,11 @@ header{
 
 .c-white{
   color: white;
+}
+
+.c-gray{
+  color: #CCC3E2;
+  border: 2px solid #CCC3E2;
 }
 
 .none-sign-up{
