@@ -82,15 +82,16 @@ window.addEventListener("load", function(){
     event.preventDefault();
     var newPerson = new Person(inpPhoneNumber.value, inpName.value, inpEmail.value, inpCity.value);
     var allInpData = document.querySelectorAll(".inp-data");
-    console.log(allInpData);
-    if(inpPhoneNumber.value == "" || inpName.value == "" || inpEmail.value == "" || inpCity.value == ""){
-        for (var i = 0; i < allInpData.length; i++) {
+
+      for (var i = 0; i < allInpData.length; i++) {
+        if(allInpData[i].value.trim().length == 0){
           allInpData[i].style.borderBottom = "2px solid #FEA4AD";
+
+        }else if(allInpData[i].style.borderBottom != "2px solid #FEA4AD"){
+            allPerson.unshift(newPerson);
+            localStorage.setItem("allPerson",JSON.stringify(allPerson));
         }
-    }else{
-      allPerson.unshift(newPerson);
-      localStorage.setItem("allPerson",JSON.stringify(allPerson));
-    }
+      }
   });
 
 });
