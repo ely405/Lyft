@@ -41,7 +41,11 @@
   font-size: 1rem;
 }
 
-.input-box p{
+.condition-box p{
   font-size: 0.6rem;
   margin: 0.8rem 0;
+}
+
+.condition-box a{
+  color: #E900B5;
 }
